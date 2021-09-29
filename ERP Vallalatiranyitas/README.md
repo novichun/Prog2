@@ -1,4 +1,4 @@
-## <center>ERP Vállalatirányítási rendszer</center>
+## <p align="center">ERP Vállalatirányítási rendszer</p>
 
 
 **Mit is jelent az ERP?**<br>
@@ -26,17 +26,17 @@ Megkönnyíti az egyes projektek nyomonkövethetőségét és lehetővé teszi b
 
 * Tulajdonos csoport (Minden funcióhoz való hozzáférés)
 * Vezető csoport (Feladatok kiosztása)
-*Alkalmazott csoport
+* Alkalmazott csoport
 
 **Alkalmazott Technológiák**<br>
 
 * Html
-*Css
-*Php
-*Javascript
-*SQL
-*Java/Python
-*React
+* Css
+* Php
+* Javascript
+* SQL
+* Java/Python
+* React
  
 **Megvalósítás folyamata**<br>
 
@@ -48,11 +48,7 @@ Megkönnyíti az egyes projektek nyomonkövethetőségét és lehetővé teszi b
 6. Tesztelés
 <br>
 <br>
+<br>
 
-
-
-
-<br><br>
-
-**<div style="text-align: right">Novák Dániel 
-OQC1QU</div>**
+**<p align="right">Novák Dániel 
+OQC1QU</p>**
