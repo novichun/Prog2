@@ -47,6 +47,10 @@ Megkönnyíti az egyes projektek nyomonkövethetőségét és lehetővé teszi b
 4. GUI megvalósítása
 5. Funkciók implementálása
 6. Tesztelés
+
+**Adatbázis Séma**<br>
+
+![title](images/db_jogok.png)
 <br>
 <br>
 <br>
