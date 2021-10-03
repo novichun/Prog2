@@ -35,9 +35,8 @@ Megkönnyíti az egyes projektek nyomonkövethetőségét és lehetővé teszi b
 * Php
 * Javascript
 * SQL
-* Laravel
-* Bootstrap
-* Fortify
+* Java/Python
+* React
  
 **Megvalósítás folyamata**<br>
 
