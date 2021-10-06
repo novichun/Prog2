@@ -11,8 +11,10 @@
 
         <!-- Styles -->
        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
         <!-- js -->
        <script src="{{ asset('js/app.js') }}" defer></script>
+    
 
     </head>
     <body>
@@ -30,7 +32,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Kezdőlap</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Felhasználók</a>
+                <a class="nav-link" href="{{ route('admin.users.index') }}">Felhasználók</a>
                 </li>
             </ul>
             <div class="form-inline my-2 my-lg-0">
@@ -58,7 +60,7 @@
         </div>
 </nav>
 
-       
+
 
     <main class="container">
         @yield('content')

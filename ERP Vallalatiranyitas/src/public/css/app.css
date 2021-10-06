@@ -10015,3 +10015,12 @@ body {
 .navbar a {
   color: white;
 }
+
+h1 {
+  margin-bottom: 1em;
+}
+
+.card {
+  box-shadow: 0 2px 4px rgba(204, 204, 204, 0.8);
+  padding: 1em 1.5em;
+}
