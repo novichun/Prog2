@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
 use App\Models\Jogok;
 use App\Models\Role;
 use App\Models\User;
@@ -41,11 +42,16 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $user = User::create($request->except(['_token', 'jogoks']));
+
+        $validatedData = $request->validated();
+
+        $user = User::create($validatedData);
 
         $user->jogoks()->sync($request->jogoks);
+
+        $request->session()->flash('succes', 'Sikeresen létrehozta a felhasználót');
 
         return redirect(route('admin.users.index'));
     }
@@ -83,9 +89,16 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
+        if(!$user){
+            $request->session()->flash('error', 'Nem szerkesztheti ezt a felhasználót');
+            return redirect(route('admin.users.index'));
+        }
+
         $user->update($request->except(['_token', 'jogoks']));
 
         $user->jogoks()->sync($request->jogoks);
+
+        $request->session()->flash('succes', 'Sikeresen szerkesztette a felhasználót');
 
         return redirect(route('admin.users.index'));
     }
@@ -96,10 +109,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
        
         User::destroy($id);
+
+        $request->session()->flash('succes', 'Sikeresen kitörölte a felhasználót');
+
         return redirect(route('admin.users.index'));
     }
 }

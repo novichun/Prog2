@@ -63,6 +63,7 @@
 
 
     <main class="container">
+        @include('admin.users.partials.alerts')
         @yield('content')
     </main>
 
