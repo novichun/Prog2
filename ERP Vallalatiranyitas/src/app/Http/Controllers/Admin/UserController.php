@@ -9,6 +9,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -22,6 +23,10 @@ class UserController extends Controller
         if(Gate::denies('logged-in')){
             dd('no acces');
         }
+        if(Gate::allows('is-admin')){
+            return view('admin.users.index', ['users' => User::paginate(10)]);
+        }
+        dd("adminnak kell lenned");
         $users = User::paginate(10);
 
         return view('admin.users.index')
@@ -58,7 +63,9 @@ class UserController extends Controller
         $request->session()->flash('succes', 'Sikeresen létrehozta a felhasználót');
 
         return redirect(route('admin.users.index'));
+       
     }
+    
 
     /**
      * Display the specified resource.

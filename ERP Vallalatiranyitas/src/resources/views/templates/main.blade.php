@@ -62,9 +62,11 @@
     <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Kezdőlap</a>
     </li>
+    @can('is-admin')
     <li class="nav-item">
     <a class="nav-link" href="{{ route('admin.users.index') }}">Felhasználók</a>
     </li>
+    @endcan
 </ul>
 
      </div>

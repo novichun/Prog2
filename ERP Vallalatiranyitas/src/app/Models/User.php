@@ -43,11 +43,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setPasswordAttribue($password) {
+    public function setPasswordAttribute($password) {
         $this->attributes['password'] = Hash::make($password);
     }
 
     public function jogoks(){
         return $this->belongsToMany('App\Models\Jogok');
     }
+        /* Check if the user has a role
+        * @param string $role
+        * @return bool
+        */
+    public function hasAnyRole(string $role){
+        return null !== $this->jogoks()->where('name', $role)->first();        
+    }
+    /* Check if the user has any given role
+        * @param array $role
+        * @return bool
+        */
+    public function hasAnyRoles(array $role){
+        return null !== $this->jogoks()->whereIn('name', $role)->first();        
+    }
+
 }
