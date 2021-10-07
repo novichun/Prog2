@@ -8,6 +8,7 @@ use App\Models\Jogok;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -18,6 +19,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        if(Gate::denies('logged-in')){
+            dd('no acces');
+        }
         $users = User::paginate(10);
 
         return view('admin.users.index')
