@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Jogok;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -30,7 +32,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create', ['jogoks' => Jogok::all()]);
     }
 
     /**
@@ -41,7 +43,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->except(['_token', 'jogoks']));
+
+        $user->jogoks()->sync($request->jogoks);
+
+        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -63,7 +69,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.users.edit', ['jogoks' => Jogok::all(), 'user' => User::find($id)]);
     }
 
     /**
@@ -75,7 +81,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->update($request->except(['_token', 'jogoks']));
+
+        $user->jogoks()->sync($request->jogoks);
+
+        return redirect(route('admin.users.index'));
     }
 
     /**
