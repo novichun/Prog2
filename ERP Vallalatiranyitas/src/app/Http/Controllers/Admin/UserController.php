@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\Jogok;
 use App\Models\Role;
 use App\Models\User;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
 {
@@ -54,11 +57,16 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
 
-        $validatedData = $request->validated();
+        //$validatedData = $request->validated();
 
-        $user = User::create($validatedData);
+        //$user = User::create($validatedData);
+
+        $newUser = new CreateNewUser();
+        $user = $newUser->create($request->all());
 
         $user->jogoks()->sync($request->jogoks);
+
+        Password::sendResetLink($request->only(['email']));
 
         $request->session()->flash('succes', 'Sikeresen létrehozta a felhasználót');
 
