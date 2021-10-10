@@ -5,15 +5,16 @@
         <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{config('APP_NAME', 'ERP')}}</title>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
+        
         <!-- Styles -->
        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <!-- js -->
        <script src="{{ asset('js/app.js') }}" defer></script>
+
     
 
     </head>
@@ -22,7 +23,7 @@
     <nav class="navbar navbar-expand-lg ">
                 <div class="container">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">{{config('APP_NAME', 'ERP')}}</a>
+            <a class="navbar-brand" href="/">{{config('APP_NAME', 'ERP')}}</a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,12 +33,21 @@
             @if (Route::has('login'))
                         <div>
                             @auth
-                                
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Kijelentkezés</a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ auth()->user()->name }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="{{ route('user.profile') }}">Profil</a></li>
+                                  <div class="dropdown-divider"></div>
+                                  <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Kijelentkezés</a></li>
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
+                                </ul>
+                              </div>
+             
                             @else
                                 <a href="{{ route('login') }}" >Bejelentkezés</a>
 
@@ -68,6 +78,13 @@
     <a class="nav-link" href="{{ route('admin.users.index') }}">Felhasználók</a>
     </li>
     
+    @endcan
+    @can('is-munkas')
+    
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('user.naptar') }}">Naptár</a>
+        </li>
+
     @endcan
 </ul>
 

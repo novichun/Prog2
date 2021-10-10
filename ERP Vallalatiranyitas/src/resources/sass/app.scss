@@ -1,6 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 // Variables
 @import 'variables';
 
@@ -38,3 +38,33 @@ h1 {
         color: $text;
     }
 }
+.center {
+    max-width: 700px;
+    position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+
+  h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 400;
+    font-size: xx-large;
+    text-decoration: underline;
+    color: black;
+  }
+  p {
+    font-weight: 400;
+    font-size: medium;
+    color: gray;
+    text-align: center;
+  }
+    
+  }
+  .dropdown ul li a{
+    color: #3A3C42;
+    font-weight: bold;
+  }
+ .center-text {
+     text-align: center;
+ }

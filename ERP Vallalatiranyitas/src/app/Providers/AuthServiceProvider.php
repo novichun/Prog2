@@ -33,5 +33,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasAnyRoles(['admin', 'ugyvitel']);
             //tobbet is ide kell irni a jogokbol
         });
+        Gate::define('is-munkas', function($user){
+            return $user->hasAnyRoles(['munkas', 'admin']);
+            //tobbet is ide kell irni a jogokbol
+        });
+        
     }
 }

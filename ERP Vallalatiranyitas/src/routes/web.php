@@ -3,6 +3,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Admin\UserController;
+use App\Http\Controllers\NaptarController;
+use PHPUnit\TextUI\XmlConfiguration\Group;
+use \User\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +24,19 @@ Route::get('/', function () {
 
 
 
+
+
+// Csak bejelentkezett elérések
+Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(function(){
+    Route::get('profile', Profile::class)->name('profile');
+    Route::get('naptar', 'User\NaptarController')->name('naptar');
+    
+});
+
 // Admin elérési utak
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::resource('/users', UserController::class);
+    
 });
+
+
