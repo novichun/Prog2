@@ -36,6 +36,7 @@
                             
                             <div class="dropdown">
                                 <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="height: 32px; width:32px; margin-right:10px; border-radius:50%;">
                                     {{ auth()->user()->name }}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -73,19 +74,28 @@
     <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Kezdőlap</a>
     </li>
+
     @can('is-admin')
-    <li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.users.index') }}">Felhasználók</a>
-    </li>
-    
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Admin
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ route('admin.users.index') }}">Felhasználók</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ route('admin.project.index') }}">Projekt hozzáadás</a>
+          <a class="dropdown-item" href="#">Feladat kiosztás</a>
+          <a class="dropdown-item" href="#">Naptár szerkesztés</a>
+        </div>
     @endcan
-    @can('is-munkas')
+    
+
     
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user.naptar') }}">Naptár</a>
         </li>
 
-    @endcan
+
 </ul>
 
      </div>

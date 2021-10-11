@@ -1,4 +1,5 @@
 @csrf
+
 <div class="mb-3">
   <label for="name" class="form-label">Teljes Neve</label>
   <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" id="name" aria-describedby="name" 

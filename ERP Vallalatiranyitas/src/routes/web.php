@@ -30,13 +30,14 @@ Route::get('/', function () {
 Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(function(){
     Route::get('profile', Profile::class)->name('profile');
     Route::get('naptar', 'User\NaptarController')->name('naptar');
+    Route::post('profile_avatar', 'User\Profile@update_avatar');
     
 });
 
 // Admin elérési utak
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::resource('/users', UserController::class);
-    
+    Route::resource('/project', 'ProjectController');
 });
 
 

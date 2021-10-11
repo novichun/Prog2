@@ -16,7 +16,7 @@
     <table class="table">
   <thead>
     <tr>
-      <th scope="col">#Id</th>
+      <th scope="col">Profilkép</th>
       <th scope="col">Név</th>
       <th scope="col">Email</th>
       <th scope="col">Műveletek</th>
@@ -25,7 +25,7 @@
   <tbody>
       @foreach($users as $user)
       <tr>
-      <th scope="row">{{ $user->id }}</th>
+      <th scope="row"><img src="/uploads/avatars/{{ $user->avatar }}" style=" width:32x; height:32px; float:left; border-radius:50%; margin-right:25px;"></th>
       <td>{{ $user->name }}</td>
       <td>{{ $user->email }}</td>
       <td>
