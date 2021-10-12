@@ -13,7 +13,12 @@
        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <!-- js -->
-       <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
+       
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+          
 
     
 
@@ -83,8 +88,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{ route('admin.users.index') }}">Felhasználók</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ route('admin.project.index') }}">Projekt hozzáadás</a>
-          <a class="dropdown-item" href="#">Feladat kiosztás</a>
+          <a class="dropdown-item" href="{{ route('admin.projects.index') }}">Projekt hozzáadás</a>
+          <a class="dropdown-item" href="{{ route('admin.tasks.index') }}">Feladat kiosztás</a>
           <a class="dropdown-item" href="#">Naptár szerkesztés</a>
         </div>
     @endcan
@@ -110,6 +115,7 @@
         @include('admin.users.partials.alerts')
         @yield('content')
     </main>
-
+   
+  
     </body>
 </html>

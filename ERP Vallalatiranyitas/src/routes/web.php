@@ -37,7 +37,8 @@ Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(fu
 // Admin elérési utak
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::resource('/users', UserController::class);
-    Route::resource('/project', 'ProjectController');
+    Route::resource('projects', ProjectsController::class);
+    Route::resource('tasks', TasksController::class);
 });
 
 
