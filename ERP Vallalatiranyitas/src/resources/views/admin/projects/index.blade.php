@@ -49,9 +49,9 @@
                 </tr>
                 @endforeach
             </table>
-          
+            <div class="d-flex justify-content-center">
             {!! $projects->links() !!}
-
+            </div>
 
 
 @endsection

@@ -16,7 +16,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Task::latest()->paginate(5);
+        $tasks = Task::latest()->paginate(10);
     
         return view('admin.tasks.index',compact('tasks'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -30,6 +30,7 @@ class TasksController extends Controller
     public function create()
     {
         return view('admin.tasks.create', ['users' => User::all()], ['projects' => Project::all()]);
+        
     }
 
     /**
@@ -45,13 +46,14 @@ class TasksController extends Controller
             'projekt' => 'required',
             'feladat' => 'required',
             'hatarido' => 'required',
-
+            
         ]);
         
-        Task::create($request->all());
-     
+        $task = Task::create($request->all());
+        $task->users()->sync($request->users);
+
         return redirect()->route('admin.tasks.index')
-                        ->with('success','Product created successfully.');
+                        ->with('success','Feladat sikeresen kiosztva!');
     }
 
     /**
@@ -73,7 +75,7 @@ class TasksController extends Controller
      */
     public function edit(Task $Task)
     {
-        return view('admin.tasks.edit',compact('Task'));
+        return view('admin.tasks.edit',compact('Task'),['users' => User::all(),'projects' => Project::all()]);
     }
 
     /**
@@ -95,7 +97,7 @@ class TasksController extends Controller
         $Task->update($request->all());
     
         return redirect()->route('admin.tasks.index')
-                        ->with('success','Product updated successfully');
+                        ->with('success','Feladat sikeresen frissitve!');
                     
     }
 
@@ -110,6 +112,6 @@ class TasksController extends Controller
         $Task->delete();
     
         return redirect()->route('admin.tasks.index')
-                        ->with('success','Product deleted successfully');
+                        ->with('success','Feladat sikeresen törölve!');
     }
 }

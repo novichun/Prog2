@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
-use Tasks;
+use App\Models\Task;
 
 class User extends Authenticatable
 {
@@ -53,9 +53,10 @@ class User extends Authenticatable
     }
    
    
-    public function tasks(){
-        return $this->belongsToMany('App\Models\Task');
-    }
+    public function tasks()
+{
+  return $this->belongsToMany(Task::class, 'user_task');
+}
         /* Check if the user has a role
         * @param string $role
         * @return bool

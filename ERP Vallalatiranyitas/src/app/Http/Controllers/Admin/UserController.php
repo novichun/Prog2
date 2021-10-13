@@ -63,9 +63,9 @@ class UserController extends Controller
 
         $newUser = new CreateNewUser();
         $user = $newUser->create($request->all());
-
+        
         $user->jogoks()->sync($request->jogoks);
-
+        
         Password::sendResetLink($request->only(['email']));
 
         $request->session()->flash('succes', 'Sikeresen létrehozta a felhasználót');

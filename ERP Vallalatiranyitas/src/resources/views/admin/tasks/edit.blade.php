@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-right">
-                    <a class="btn btn-sm btn-primary float-right" href=" {{ route('admin.projects.index') }}" role="button">Vissza</a>
+                    <a class="btn btn-sm btn-primary float-right" href=" {{ route('admin.tasks.index') }}" role="button">Vissza</a>
                 </div>
             </div>
         </div>
@@ -25,27 +25,51 @@
             </div>
         @endif
       <br><br><br>
-        <form action="{{ route('admin.projects.update',$project->id) }}" method="POST">
+        <form action="{{ route('admin.tasks.update',$Task->id) }}" method="POST">
             @csrf
             @method('PUT')
        
-             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Projekt neve:</strong>
-                        <input type="text" name="name" value="{{ $project->name }}" class="form-control" placeholder="Name">
-                    </div>
+            <div class="form-group row">
+                <label for="select" class="col-4 col-form-label">Alkalmazott</label> 
+                <div class="col-8">
+                  <select id="alkalmazott" for="exampleFormControlSelect1" name="alkalmazott" required="required" class="custom-select">
+                      @foreach($users as $user)
+                      <option>{{ $user->name }}</option>
+                      @endforeach
+                    </select>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Felelős:</strong>
-                        <textarea class="form-control" style="height:auto" name="felelos" placeholder="Detail">{{ $project->felelos }}</textarea>
-                    </div>
+              </div>
+              <div class="form-group row">
+                  <label for="select" class="col-4 col-form-label">Projekt</label> 
+                  <div class="col-8">
+                    <select id="projekt" for="exampleFormControlSelect1" name="projekt" required="required" class="custom-select">
+                        @foreach($projects as $project)
+                        <option>{{ $project->name }}</option>
+                        @endforeach
+                      </select>
+                  </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                  <button type="submit" class="btn btn-primary">Szerkesztés</button>
+              <div class="form-group row">
+                <label for="textarea" class="col-4 col-form-label">Feladat</label> 
+                <div class="col-8">
+                  <textarea id="feladat" name="feladat" cols="40" rows="5" class="form-control">{{ old('feladat') }} @isset($Task) {{ $Task->feladat }} @endisset</textarea>
                 </div>
-            </div>
+              </div>
+             <div class="form-group row">
+              <label for="textarea" class="col-4 col-form-label">Határidő</label> 
+              <div class="col-8">
+                      <input type="date" class="form-control {{$errors->has('hatarido') ? 'is-invalid' : ''}}" placeholder="Írja be a határidőt" name="hatarido">
+                      <div class="invalid-feedback">{{$errors->first('hatarido')}}</div>
+                  </div>
+              </div>
+  
+              
+              
+              <div class="form-group row">
+                <div class="offset-4 col-8">
+                  <button name="submit" type="submit" class="btn btn-primary">Feladat kiosztása</button>
+                </div>
+              </div>
        
         </form>
 

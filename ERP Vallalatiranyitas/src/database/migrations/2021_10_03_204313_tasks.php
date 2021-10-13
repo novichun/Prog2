@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -33,9 +34,3 @@ class Tasks extends Migration
         Schema::dropIfExists('tasks');
     }
 }
-
-
-
-
-
-
