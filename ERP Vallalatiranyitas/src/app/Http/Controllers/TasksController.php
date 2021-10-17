@@ -16,10 +16,10 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Task::latest()->paginate(10);
-    
-        return view('admin.tasks.index',compact('tasks'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+       $tasks = Task::with('user')->latest()->paginate(10);
+
+    return view('admin.tasks.index',compact('tasks'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -29,7 +29,10 @@ class TasksController extends Controller
      */
     public function create()
     {
-        return view('admin.tasks.create', ['users' => User::all()], ['projects' => Project::all()]);
+        return view('admin.tasks.create', [
+            'users' => User::all(),
+            'projects' => Project::all()
+        ]);
         
     }
 
@@ -50,7 +53,7 @@ class TasksController extends Controller
         ]);
         
         $task = Task::create($request->all());
-        $task->users()->sync($request->users);
+        $task->users()->sync($request->alkalmazott);
 
         return redirect()->route('admin.tasks.index')
                         ->with('success','Feladat sikeresen kiosztva!');
@@ -64,7 +67,7 @@ class TasksController extends Controller
      */
     public function show(Task $Task)
     {
-        return view('admin.tasks.show',compact('Task'));
+        return view('admin.tasks.show',compact('Task'), ['task' => $Task]);
     }
 
     /**
@@ -75,7 +78,11 @@ class TasksController extends Controller
      */
     public function edit(Task $Task)
     {
-        return view('admin.tasks.edit',compact('Task'),['users' => User::all(),'projects' => Project::all()]);
+        return view('admin.tasks.edit', [
+            'task' => $Task,
+            'users' => User::all(),
+            'projects' => Project::all()
+        ]);
     }
 
     /**
@@ -93,8 +100,9 @@ class TasksController extends Controller
             'feladat' => 'required',
             'hatarido' => 'required',
         ]);
-        
+   
         $Task->update($request->all());
+        $Task->users()->sync($request->input('alkalmazott'));
     
         return redirect()->route('admin.tasks.index')
                         ->with('success','Feladat sikeresen frissitve!');

@@ -31,7 +31,7 @@
               <div class="col-8">
                 <select id="alkalmazott" for="exampleFormControlSelect1" name="alkalmazott" required="required" class="custom-select">
                     @foreach($users as $user)
-                    <option>{{ $user->name }}</option>
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
                   </select>
               </div>
@@ -59,6 +59,8 @@
                     <div class="invalid-feedback">{{$errors->first('hatarido')}}</div>
                 </div>
             </div>
+
+      
 
             
             

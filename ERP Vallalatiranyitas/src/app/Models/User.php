@@ -57,6 +57,10 @@ class User extends Authenticatable
 {
   return $this->belongsToMany(Task::class, 'user_task');
 }
+public function felhasznalok()
+{
+  return $this->belongsToMany(Felhasznalok::class);
+}
         /* Check if the user has a role
         * @param string $role
         * @return bool

@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use Admin\UserController;
 use App\Http\Controllers\NaptarController;
+use App\Http\Controllers\Felhasznalokontroller;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 use \User\Profile;
 
@@ -30,6 +31,8 @@ Route::get('/', function () {
 Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(function(){
     Route::get('profile', Profile::class)->name('profile');
     Route::get('naptar', 'User\NaptarController')->name('naptar');
+    Route::get('feladatok', 'User\FeladatokController')->name('feladatok');
+    Route::get('felhasznalok', 'User\FelhasznalokController')->name('felhasznalok.felhasznalok');
     Route::post('profile_avatar', 'User\Profile@update_avatar');
     
 });

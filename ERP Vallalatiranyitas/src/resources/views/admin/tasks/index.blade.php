@@ -33,7 +33,7 @@
                 @foreach ($tasks as $task)
                 <tr>
                     <td>{{ $task->id  }}</td>
-                    <td>{{ $task->alkalmazott }}</td>
+                    <td>{{ $task->user->name }}</td>
                     <td>{{ $task->projekt }}</td>
                     <td>{{ $task->feladat }}</td>
                     <td>{{ $task->hatarido }}</td>
@@ -53,7 +53,7 @@
                 </tr>
                 @endforeach
             </table>
-        
+            
               
                  
             <div class="d-flex justify-content-center">

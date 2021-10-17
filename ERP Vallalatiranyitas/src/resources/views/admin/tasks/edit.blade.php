@@ -25,7 +25,7 @@
             </div>
         @endif
       <br><br><br>
-        <form action="{{ route('admin.tasks.update',$Task->id) }}" method="POST">
+        <form action="{{ route('admin.tasks.update',$task->id) }}" method="POST">
             @csrf
             @method('PUT')
        
@@ -34,7 +34,10 @@
                 <div class="col-8">
                   <select id="alkalmazott" for="exampleFormControlSelect1" name="alkalmazott" required="required" class="custom-select">
                       @foreach($users as $user)
-                      <option>{{ $user->name }}</option>
+                      <option value="none" selected disabled hidden>
+                        Vélasszon alkalmazottat (Eredeti: {{ $task->user->name }})
+                    </option>
+                      <option value="{{ $user->id }}">{{ $user->name }}</option>
                       @endforeach
                     </select>
                 </div>
@@ -52,7 +55,7 @@
               <div class="form-group row">
                 <label for="textarea" class="col-4 col-form-label">Feladat</label> 
                 <div class="col-8">
-                  <textarea id="feladat" name="feladat" cols="40" rows="5" class="form-control">{{ old('feladat') }} @isset($Task) {{ $Task->feladat }} @endisset</textarea>
+                  <textarea id="feladat" name="feladat" cols="40" rows="5" class="form-control">{{ old('feladat') }} @isset($task) {{ $task->feladat }} @endisset</textarea>
                 </div>
               </div>
              <div class="form-group row">

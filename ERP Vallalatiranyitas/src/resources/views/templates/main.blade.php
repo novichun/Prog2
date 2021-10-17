@@ -11,7 +11,7 @@
         
         <!-- Styles -->
        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+        
         <!-- js -->
         <script src="{{ asset('js/app.js') }}" defer></script>
        
@@ -90,7 +90,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ route('admin.projects.index') }}">Projekt hozzáadás</a>
           <a class="dropdown-item" href="{{ route('admin.tasks.index') }}">Feladat kiosztás</a>
-          <a class="dropdown-item" href="#">Naptár szerkesztés</a>
+
         </div>
     @endcan
     
@@ -99,6 +99,12 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user.naptar') }}">Naptár</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.feladatok') }}">Feladatok</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('user.felhasznalok.felhasznalok') }}">Elérhetőségek</a>
+                </li>
 
 
 </ul>
