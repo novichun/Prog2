@@ -33,7 +33,7 @@
                 @foreach ($tasks as $task)
                 <tr>
                     <td>{{ $task->id  }}</td>
-                    <td>{{ $task->user->name }}</td>
+                    <td>{{ $task->user->name ?? 'none' }}</td>
                     <td>{{ $task->projekt }}</td>
                     <td>{{ $task->feladat }}</td>
                     <td>{{ $task->hatarido }}</td>

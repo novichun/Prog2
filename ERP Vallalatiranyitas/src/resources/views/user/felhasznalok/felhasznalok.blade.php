@@ -31,6 +31,7 @@
                         <h3 class="float-center">{{ $user->name }}</h3>
                         <hr style="border-color: white;">
                         <p><b>Email:</b> {{ $user->email }}</p>
+                        <p><b>Telefonszáma:</b> {{ $user->phone }}</p>
                         <p><b>Létrehozás:</b> {{ $user->created_at }}</p>
                         
                       </div>

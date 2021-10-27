@@ -20,6 +20,16 @@
       </span>
   @enderror
 </div>
+<div class="mb-3">
+  <label for="phone" class="form-label">Telefonszáma</label>
+  <input name="phone" type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" aria-describedby="phone" 
+  value="{{old('phone')}} @isset($user) {{$user->phone}} @endisset">
+  @error('phone')
+      <span class="invalid-feedback" role="alert">
+          {{ $message }}
+      </span>
+  @enderror
+</div>
 
 @isset($create)
 

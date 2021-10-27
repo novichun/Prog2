@@ -19,7 +19,7 @@
       <th scope="col">Profilkép</th>
       <th scope="col">Név</th>
       <th scope="col">Email</th>
-  
+      <th scope="col">Telefonszám</th>
       <th scope="col">Műveletek</th>
     </tr>
   </thead>
@@ -29,7 +29,7 @@
       <th scope="row"><img src="/uploads/avatars/{{ $user->avatar }}" style=" width:32x; height:32px; float:left; border-radius:50%; margin-right:25px;"></th>
       <td>{{ $user->name }}</td>
       <td>{{ $user->email }}</td>
-  
+      <td>{{ $user->phone }}</td>
       
       <td>
 
