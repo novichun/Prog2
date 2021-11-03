@@ -3,10 +3,11 @@
 
 use Illuminate\Support\Facades\Route;
 use Admin\UserController;
-use App\Http\Controllers\NaptarController;
+
 use App\Http\Controllers\Felhasznalokontroller;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 use \User\Profile;
+use \User\SzabadsagolasController;
 
 /*
 |--------------------------------------------------------------------------

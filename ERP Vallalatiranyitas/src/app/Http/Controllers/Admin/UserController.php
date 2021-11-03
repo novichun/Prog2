@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use phpDocumentor\Reflection\Types\Null_;
 
 class UserController extends Controller
 {
@@ -21,8 +22,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        
+        $search = $request->get('search');
+        $users = User::where('name', 'like', '%'.$search.'%')->paginate(10);
+        return view('admin.users.index', ['users' => $users]);
+
         if(Gate::denies('logged-in')){
             dd('no acces');
         }
@@ -32,11 +38,10 @@ class UserController extends Controller
         dd("adminnak kell lenned");
         $users = User::paginate(10);
 
-        return view('admin.users.index')
-                    ->with([
-                        'users' => $users
-                    ]);
+      
     }
+
+
 
     /**
      * Show the form for creating a new resource.

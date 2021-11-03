@@ -102,6 +102,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('user.feladatok') }}">Feladatok</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.felhasznalok.felhasznalok') }}">Elérhetőségek</a>
                 </li>

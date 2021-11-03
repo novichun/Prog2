@@ -21,7 +21,7 @@ class TasksController extends Controller
     return view('admin.tasks.index',compact('tasks'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      *
