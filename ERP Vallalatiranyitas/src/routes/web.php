@@ -3,11 +3,12 @@
 
 use Illuminate\Support\Facades\Route;
 use Admin\UserController;
-
 use App\Http\Controllers\Felhasznalokontroller;
+use \User\NaptarController;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 use \User\Profile;
-use \User\SzabadsagolasController;
+
+use App\Http\Controllers\User\SzabadsagolasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::get('/', function () {
 // Csak bejelentkezett elérések
 Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(function(){
     Route::get('profile', Profile::class)->name('profile');
-    Route::get('naptar', 'User\NaptarController')->name('naptar');
+    Route::get('naptar', NaptarController::class)->name('naptar');
     Route::get('feladatok', 'User\FeladatokController')->name('feladatok');
     Route::get('felhasznalok', 'User\FelhasznalokController')->name('felhasznalok.felhasznalok');
     Route::post('profile_avatar', 'User\Profile@update_avatar');
@@ -42,6 +43,7 @@ Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(fu
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::resource('/users', UserController::class);
     Route::resource('projects', ProjectsController::class);
+    Route::resource('eszkozok', EszkozokController::class);
     Route::resource('tasks', TasksController::class);
 });
 

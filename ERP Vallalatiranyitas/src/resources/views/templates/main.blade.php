@@ -18,7 +18,9 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-          
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    
 
     
 
@@ -90,7 +92,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ route('admin.projects.index') }}">Projekt hozzáadás</a>
           <a class="dropdown-item" href="{{ route('admin.tasks.index') }}">Feladat kiosztás</a>
-
+          <a class="dropdown-item" href="{{ route('admin.eszkozok.index') }}">Eszközök</a>
         </div>
     @endcan
     

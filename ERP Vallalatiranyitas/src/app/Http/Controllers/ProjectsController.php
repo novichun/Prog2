@@ -46,7 +46,7 @@ class ProjectsController extends Controller
         Project::create($request->all());
      
         return redirect()->route('admin.projects.index')
-                        ->with('success','Product created successfully.');
+                        ->with('success','Projekt sikeresen létrehozva!');
     }
 
     /**
@@ -88,7 +88,7 @@ class ProjectsController extends Controller
         $project->update($request->all());
     
         return redirect()->route('admin.projects.index')
-                        ->with('success','Product updated successfully');
+                        ->with('success','Projekt sikeresen szerkesztve!');
     }
 
     /**
@@ -102,6 +102,6 @@ class ProjectsController extends Controller
         $project->delete();
     
         return redirect()->route('admin.projects.index')
-                        ->with('success','Product deleted successfully');
+                        ->with('success','Projekt sikeresn törölve!');
     }
 }
