@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Eszkozok;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class eszkozokController extends Controller
@@ -18,8 +19,8 @@ class eszkozokController extends Controller
         $eszkozok = Eszkozok::where('eszkoz', 'like', '%'.$search.'%')->paginate(10);
         return view('admin.eszkozok.index', ['eszkozok' => $eszkozok]);
 
-        $eszkozok = Eszkozok::latest()->paginate(10);
-    
+        $eszkozok = Eszkozok::latest()->paginate(10)->with('name');
+
         
     }
 
@@ -44,7 +45,6 @@ class eszkozokController extends Controller
         $request->validate([
             'marka' => 'required',
             'eszkoz' => 'required',
-            'mennyiseg' => 'required',
         ]);
     
         Eszkozok::create($request->all());
@@ -87,7 +87,6 @@ class eszkozokController extends Controller
         $request->validate([
             'marka' => 'required',
             'eszkoz' => 'required',
-            'mennyiseg' => 'required',
         ]);
     
         $eszkozok->update($request->all());

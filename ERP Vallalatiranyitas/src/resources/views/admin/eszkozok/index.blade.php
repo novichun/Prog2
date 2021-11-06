@@ -49,8 +49,15 @@
                 <p>
                     <b>Márka: </b>{{ $eszkoz->marka }}
                 </p>
+                <p><b>Éppen itt használják:</b> 
+                    @forelse($eszkoz->projects as $project)
+                    {{$project->name}}
+                    @empty
+                     Raktáron van
+                @endforelse
+                </p>
                 <p>
-                    <b>Mennyiség: </b>{{ $eszkoz->mennyiseg }}
+                    <b>Azonosító: </b>{{ $eszkoz->id }}
                 </p>
                 <form style="text-align: center" action="{{ route('admin.eszkozok.destroy',$eszkoz->id) }}" method="POST">
        

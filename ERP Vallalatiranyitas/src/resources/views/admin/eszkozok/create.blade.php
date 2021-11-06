@@ -42,12 +42,7 @@
                         <textarea class="form-control" style="height:150px" name="eszkoz" placeholder="Eszköz"></textarea>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Mennyiség:</strong>
-                        <textarea class="form-control" style="height:150px" name="mennyiseg" placeholder="Mennyiség"></textarea>
-                    </div>
-                </div>
+                
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                         <button type="submit" class="btn btn-success">Létrehozás</button>
                 </div>

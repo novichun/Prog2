@@ -30,8 +30,8 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Mennyiség:</strong>
-                    {{ $eszkozok->mennyiseg }}
+                    <strong>Azonosító:</strong>
+                    {{ $eszkozok->id }}
                 </div>
             </div>
         </div>

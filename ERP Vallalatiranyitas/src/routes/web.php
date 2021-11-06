@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Admin\UserController;
 use App\Http\Controllers\Felhasznalokontroller;
 use \User\NaptarController;
+use \User\ProjektekController;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 use \User\Profile;
 
@@ -33,6 +34,8 @@ Route::get('/', function () {
 Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(function(){
     Route::get('profile', Profile::class)->name('profile');
     Route::get('naptar', NaptarController::class)->name('naptar');
+    Route::get('projektek', ProjektekController::class)->name('projektek');
+    Route::get('/projektek-show/{id}', 'User\ProjektekController@show')->name('projektek-show');
     Route::get('feladatok', 'User\FeladatokController')->name('feladatok');
     Route::get('felhasznalok', 'User\FelhasznalokController')->name('felhasznalok.felhasznalok');
     Route::post('profile_avatar', 'User\Profile@update_avatar');
@@ -45,6 +48,7 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::resource('projects', ProjectsController::class);
     Route::resource('eszkozok', EszkozokController::class);
     Route::resource('tasks', TasksController::class);
+    Route::resource('esemenyek', EsemenyekController::class);
 });
 
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEszkozokTable extends Migration
+class CreateEszkozProjektTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateEszkozokTable extends Migration
      */
     public function up()
     {
-        Schema::create('eszkozoks', function (Blueprint $table) {
+        Schema::create('eszkoz_projekt', function (Blueprint $table) {
             $table->id();
-            $table->string('marka');
-            $table->string('eszkoz');
-            $table->integer('mennyiseg')->default(NULL);
+            $table->foreignId('eszkozok_id')->constrained()->onDelete('cascade');
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateEszkozokTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eszkozoks');
+        Schema::dropIfExists('eszkoz_projekt');
     }
 }

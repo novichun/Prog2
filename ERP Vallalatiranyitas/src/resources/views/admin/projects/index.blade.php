@@ -20,17 +20,16 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-           
-            <table class="table table-bordered">
+            <br><br><br>
+            <div class="card">
+            <table class="table">
                 <tr>
-                    <th>Id</th>
                     <th>Projekt</th>
                     <th>Felelős</th>
                     <th width="280px">Műveletek</th>
                 </tr>
                 @foreach ($projects as $project)
                 <tr>
-                    <td>{{ $project->id  }}</td>
                     <td>{{ $project->name }}</td>
                     <td>{{ $project->felelos }}</td>
                     <td>
@@ -49,6 +48,7 @@
                 </tr>
                 @endforeach
             </table>
+        </div>
             <div class="d-flex justify-content-center">
             {!! $projects->links() !!}
             </div>

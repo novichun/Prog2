@@ -20,10 +20,11 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-           
-            <table class="table table-bordered">
+            <br><br><br>
+            <div class="card">
+            <table class="table">
                 <tr>
-                    <th>Id</th>
+            
                     <th>Alkalmazott</th>
                     <th>Projekt</th>
                     <th>Feladat</th>
@@ -32,7 +33,7 @@
                 </tr>
                 @foreach ($tasks as $task)
                 <tr>
-                    <td>{{ $task->id  }}</td>
+
                     <td>{{ $task->user->name ?? 'none' }}</td>
                     <td>{{ $task->projekt }}</td>
                     <td>{{ $task->feladat }}</td>
@@ -54,7 +55,7 @@
                 @endforeach
             </table>
             
-              
+        </div>
                  
             <div class="d-flex justify-content-center">
             {!! $tasks->links() !!}
