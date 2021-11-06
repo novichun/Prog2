@@ -21,7 +21,7 @@
     @foreach ($projects as $project)
     
     
-    <div class="col-md-3 card">
+    <div class="col-md-3 card" style="margin: 20px">
         <h2 style="text-align: center;">
             {{ $project->name  }}
         </h2>

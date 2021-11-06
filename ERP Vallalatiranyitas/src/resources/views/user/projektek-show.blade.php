@@ -5,7 +5,6 @@
 <h1 class="center-text">Projekt megtekintése</h1>
 
 
-
 <div class="row">
     <div class="col-lg-12 margin-tb">
       
@@ -14,24 +13,45 @@
         </div>
     </div>
 </div>
-<br><br><br>
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Projekt neve:</strong>
-            {{ $project->name }}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Felelős:</strong>
-            {{ $project->felelos }} 
-        </div>
-    </div>
-</div>
+<br>
 
-@foreach ($project->eszkozoks as $eszkoz)
-    <li>{{$eszkoz->eszkoz}} Azonosito: {{$eszkoz->id}}</li>
-@endforeach
+
+<div class="row justify-content-md-center" style="text-align: center;">
+    <div class="col col-lg-3 card" style="margin: 20px">
+      <h2>Adatok:</h2>
+      <strong>Projekt neve:</strong>
+      {{ $project->name }}
+      <strong>Felelős:</strong>
+      {{ $project->felelos }} 
+    </div>
+    <div class="col-md-auto col-lg-3 card" style="margin: 20px">
+        <h2>Eszközök:</h2>
+
+<table style="text-align: center;">
+        <tr>
+            <th>Eszköz</th>
+            <th>Márka</th>
+            <th>Azonosító</th>
+        </tr>
+        @foreach ($project->eszkozoks as $eszkoz)
+        <tr>
+            <td>{{$eszkoz->eszkoz}}</td>
+            <td>{{$eszkoz->marka}}</td>
+            <td>{{$eszkoz->id}}</td>
+        </tr>
+        @endforeach
+</table>
+
+
+       
+       
+    
+
+    </div>
+    <div class="col col-lg-3 card" style="margin: 20px">
+     <h2>Gépek:</h2>
+    </div>
+  </div>
+
 
 @endsection
