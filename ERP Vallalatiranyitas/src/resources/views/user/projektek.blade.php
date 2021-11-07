@@ -35,6 +35,9 @@
     @endforeach
 </div>
 
+
+
+
 <div class="d-flex justify-content-center">
     {!! $projects->links() !!}
     </div>

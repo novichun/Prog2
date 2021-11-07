@@ -13,19 +13,34 @@ class ProjektekController extends Controller
     public function __invoke(Request $request)
     {
         $projects = Project::latest()->paginate(10);
-     
-
+        $szabad = Project::find(1);
 
             $search = $request->get('search');
         $projects = Project::where('name', 'like', '%'.$search.'%')->paginate(10);
-        return view('user.projektek', ['projects' => $projects]);
+        return view('user.projektek', ['projects' => $projects, 'szabad' => $szabad]);
     }
   
     public function show($id, Project $project)
     {
+       
+
         $project = Project::with('eszkozoks')->find($id);
         return view('user.projektek-show', compact('project'));
     }
+
+    public function vissza( Request $request)
+    {
+        
+   
+        $projects = Project::latest()->paginate(10);
+        $szabad = Project::find(1);
+
+       
+        $search = $request->get('search');
+        $projects = Project::where('name', 'like', '%'.$search.'%')->paginate(10);
+        return view('user.projektek', ['projects' => $projects, 'szabad' => $szabad]);
+    }
+ 
  
 
 }

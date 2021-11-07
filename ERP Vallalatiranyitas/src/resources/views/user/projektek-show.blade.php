@@ -38,12 +38,20 @@
             <td>{{$eszkoz->eszkoz}}</td>
             <td>{{$eszkoz->marka}}</td>
             <td>{{$eszkoz->id}}</td>
+            <td>
+                <form action="{{ action('EszkozokController@vissza',$eszkoz->id) }}" method="GET">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">RATKÁR</button>
+                </form>
+            </td>
         </tr>
         @endforeach
 </table>
 
 
-       
+
+
+
        
     
 

@@ -47,8 +47,8 @@ class eszkozokController extends Controller
             'eszkoz' => 'required',
         ]);
     
-        Eszkozok::create($request->all());
-     
+       $eszkoz = Eszkozok::create($request->all());
+        $eszkoz->projects()->sync(1);
         return redirect()->route('admin.eszkozok.index')
                         ->with('success','Sikeresen létrehozta az eszközt.');
     }
@@ -108,4 +108,20 @@ class eszkozokController extends Controller
         return redirect()->route('admin.eszkozok.index')
                         ->with('success','Eszköz sikeresen törölve!');
     }
+
+    public function vissza($id, Request $request)
+    {
+        Eszkozok::find($id)->projects()->sync([1]);
+    
+       
+        $projects = Project::latest()->paginate(10);
+        $szabad = Project::find(1);
+
+       
+        $search = $request->get('search');
+        $projects = Project::where('name', 'like', '%'.$search.'%')->paginate(10);
+        return view('user.projektek', ['projects' => $projects, 'szabad' => $szabad]);
+    }
+    
+
 }

@@ -12,7 +12,7 @@
             
                 <div class="pull-right">
                     
-                    <a class="btn btn-sm btn-success float-right" href=" {{ route('admin.esemenyek.create') }}" role="button">Új Eszköz</a>
+                    <a class="btn btn-sm btn-success float-right" href=" {{ route('admin.esemenyek.create') }}" role="button">Új Esemény</a>
                     <a class="btn btn-sm btn-primary float-right" style="margin-right: 20px;" href=" {{ route('admin.esemenyek.index') }}" role="button">Keresés visszaállítása</a>
                 </div>
             </div>

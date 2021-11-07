@@ -39,6 +39,7 @@ Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(fu
     Route::get('feladatok', 'User\FeladatokController')->name('feladatok');
     Route::get('felhasznalok', 'User\FelhasznalokController')->name('felhasznalok.felhasznalok');
     Route::post('profile_avatar', 'User\Profile@update_avatar');
+    Route::get('/projektek-show/eszkoz/{id}', 'EszkozokController@vissza');
     
 });
 
