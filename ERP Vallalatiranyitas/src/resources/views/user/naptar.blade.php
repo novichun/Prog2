@@ -26,7 +26,7 @@
         events : [
                   @foreach(auth()->user()->tasks as $task)
                   {
-                      title : '{{ $task->projekt }}: {{ $task->feladat }}',
+                      title : @foreach ($task->projects as $projekt)'{{ $projekt->name }}: {{ $task->feladat }}'@endforeach , 
                       start : '{{ $task->created_at }}',
                       color: '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6),
                       url: '{{ route('user.feladatok') }}',
@@ -57,3 +57,6 @@
           </script>
 
 @endsection
+
+
+

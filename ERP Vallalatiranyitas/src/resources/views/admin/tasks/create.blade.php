@@ -41,7 +41,7 @@
                 <div class="col-8">
                   <select id="projekt" for="exampleFormControlSelect1" name="projekt" required="required" class="custom-select">
                       @foreach($projects as $project)
-                      <option>{{ $project->name }}</option>
+                      <option value="{{ $project->id }}">{{ $project->name }}</option>
                       @endforeach
                     </select>
                 </div>

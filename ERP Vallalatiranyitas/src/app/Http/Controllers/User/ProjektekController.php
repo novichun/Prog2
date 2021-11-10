@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Project;
+use App\Models\Task;
 use App\Models\Eszkozok;
 
 class ProjektekController extends Controller
@@ -22,10 +23,10 @@ class ProjektekController extends Controller
   
     public function show($id, Project $project)
     {
-       
-
+       $feladatok = Project::with('tasks')->find($id);
+       $tasks = Task::with('user', 'projects')->find($id);
         $project = Project::with('eszkozoks')->find($id);
-        return view('user.projektek-show', compact('project'));
+        return view('user.projektek-show', compact('project', 'feladatok', 'tasks'));
     }
 
     public function vissza( Request $request)

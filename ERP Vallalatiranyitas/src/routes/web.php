@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Admin\UserController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\Felhasznalokontroller;
 use \User\NaptarController;
 use \User\ProjektekController;
@@ -40,7 +41,13 @@ Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(fu
     Route::get('felhasznalok', 'User\FelhasznalokController')->name('felhasznalok.felhasznalok');
     Route::post('profile_avatar', 'User\Profile@update_avatar');
     Route::get('/projektek-show/eszkoz/{id}', 'EszkozokController@vissza');
-    
+    Route::get('kirendeles', 'KirendelesController')->name('kirendeles');
+    Route::get('kirendeles-vegrehajtas', 'KirendelesController@kirendeles')->name('kirendeles-vegrehajtas');
+    Route::get('dokumentumok.index', 'DocumentController@index')->name('dokumentumok.index');
+    Route::get('dokumentumok.create', 'DocumentController@create')->name('dokumentumok.create');
+    Route::post('dokumentumok.create2', 'DocumentController@store')->name('dokumentumok.create2');
+    Route::get('dokumentumok.show/{id}', 'DocumentController@show')->name('dokumentumok.show/{id}');
+    Route::get('dokumentumok.download/{file}', 'DocumentController@download')->name('dokumentumok.download/{file}');
 });
 
 // Admin elérési utak

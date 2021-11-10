@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEszkozProjektTable extends Migration
+class CreateProjectTaskTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateEszkozProjektTable extends Migration
      */
     public function up()
     {
-        Schema::create('eszkoz_projekt', function (Blueprint $table) {
+        Schema::create('project_task', function (Blueprint $table) {
             $table->id();
-             $table->unsignedBigInteger('eszkozok_id');
-            $table->unsignedBigInteger('project_id');
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
+            $table->foreignId('task_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateEszkozProjektTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eszkoz_projekt');
+        Schema::dropIfExists('project_task');
     }
 }

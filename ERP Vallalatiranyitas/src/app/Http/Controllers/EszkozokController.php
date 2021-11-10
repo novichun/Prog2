@@ -112,15 +112,7 @@ class eszkozokController extends Controller
     public function vissza($id, Request $request)
     {
         Eszkozok::find($id)->projects()->sync([1]);
-    
-       
-        $projects = Project::latest()->paginate(10);
-        $szabad = Project::find(1);
-
-       
-        $search = $request->get('search');
-        $projects = Project::where('name', 'like', '%'.$search.'%')->paginate(10);
-        return view('user.projektek', ['projects' => $projects, 'szabad' => $szabad]);
+        return back();
     }
     
 

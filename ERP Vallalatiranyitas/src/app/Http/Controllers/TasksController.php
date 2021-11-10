@@ -16,8 +16,8 @@ class TasksController extends Controller
      */
     public function index()
     {
-       $tasks = Task::with('user')->latest()->paginate(10);
-
+       $tasks = Task::with('user', 'projects')->latest()->paginate(10);
+        
     return view('admin.tasks.index',compact('tasks'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -54,7 +54,7 @@ class TasksController extends Controller
         
         $task = Task::create($request->all());
         $task->users()->sync($request->alkalmazott);
-
+        $task->projects()->sync($request->projekt);
         return redirect()->route('admin.tasks.index')
                         ->with('success','Feladat sikeresen kiosztva!');
     }
@@ -103,7 +103,7 @@ class TasksController extends Controller
    
         $Task->update($request->all());
         $Task->users()->sync($request->input('alkalmazott'));
-    
+        $Task->projects()->sync($request->input('projekt'));
         return redirect()->route('admin.tasks.index')
                         ->with('success','Feladat sikeresen frissitve!');
                     

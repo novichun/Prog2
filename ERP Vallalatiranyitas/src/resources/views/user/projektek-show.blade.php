@@ -41,7 +41,7 @@
             <td>
                 <form action="{{ action('EszkozokController@vissza',$eszkoz->id) }}" method="GET">
                     @csrf
-                    <button type="submit" class="btn btn-primary">RATKÁR</button>
+                    <button type="submit" class="btn btn-primary">RAKTÁR</button>
                 </form>
             </td>
         </tr>
@@ -56,10 +56,43 @@
     
 
     </div>
+
+
+
+    
+
+
+
+
+
     <div class="col col-lg-3 card" style="margin: 20px">
      <h2>Gépek:</h2>
     </div>
-  </div>
+  
 
+  <div class="col-md-auto col-lg-9 card" style="margin: 20px">
+    <h2>Feladatok:</h2>
+
+<table style="text-align: center;">
+    <tr>
+        <th>Alkalmazott</th>
+        <th>Feladat</th>
+        <th>Határidő</th>
+    </tr>
+    @foreach ($project->tasks as $task)
+    <tr>
+        <td>
+            @foreach ($task->users as $projekt)
+            {{ $projekt->name }}
+        @endforeach       
+        </td>
+        <td>{{$task->feladat}}</td>
+        <td>{{$task->hatarido}}</td>
+        
+    </tr>
+    @endforeach
+</table>
+</div>
+</div>
 
 @endsection

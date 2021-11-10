@@ -35,7 +35,11 @@
                 <tr>
 
                     <td>{{ $task->user->name ?? 'none' }}</td>
-                    <td>{{ $task->projekt }}</td>
+                    <td>
+                        @foreach ($task->projects as $projekt)
+                        {{ $projekt->name }}
+                    @endforeach    
+                    </td>
                     <td>{{ $task->feladat }}</td>
                     <td>{{ $task->hatarido }}</td>
                     <td>

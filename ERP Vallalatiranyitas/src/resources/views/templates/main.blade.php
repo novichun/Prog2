@@ -119,6 +119,13 @@
                 <a class="nav-link" href="{{ route('user.projektek') }}">Projektek</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.kirendeles') }}">Kirendelés</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('user.dokumentumok.index')}}">Dokumentumok</a>
+                        </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.felhasznalok.felhasznalok') }}">Elérhetőségek</a>
                 </li>

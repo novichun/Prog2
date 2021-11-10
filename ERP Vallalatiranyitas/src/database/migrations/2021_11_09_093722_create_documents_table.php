@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEszkozProjektTable extends Migration
+class CreateDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateEszkozProjektTable extends Migration
      */
     public function up()
     {
-        Schema::create('eszkoz_projekt', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->id();
-             $table->unsignedBigInteger('eszkozok_id');
-            $table->unsignedBigInteger('project_id');
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateEszkozProjektTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eszkoz_projekt');
+        Schema::dropIfExists('documents');
     }
 }
