@@ -14,6 +14,9 @@ class Project extends Model
     public function tasks(){
         return $this->belongsToMany('App\Models\Task');
     }
+    public function documents(){
+        return $this->belongsToMany('App\Models\Documents');
+    }
     public function eszkozoks()
 {
   return $this->belongsToMany(Eszkozok::class, 'eszkoz_projekt');

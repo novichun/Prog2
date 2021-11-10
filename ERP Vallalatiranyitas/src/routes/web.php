@@ -45,7 +45,7 @@ Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(fu
     Route::get('kirendeles-vegrehajtas', 'KirendelesController@kirendeles')->name('kirendeles-vegrehajtas');
     Route::get('dokumentumok.index', 'DocumentController@index')->name('dokumentumok.index');
     Route::get('dokumentumok.create', 'DocumentController@create')->name('dokumentumok.create');
-    Route::post('dokumentumok.create2', 'DocumentController@store')->name('dokumentumok.create2');
+    Route::post('dokumentumok.store', 'DocumentController@store')->name('dokumentumok.store');
     Route::get('dokumentumok.show/{id}', 'DocumentController@show')->name('dokumentumok.show/{id}');
     Route::get('dokumentumok.download/{file}', 'DocumentController@download')->name('dokumentumok.download/{file}');
 });

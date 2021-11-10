@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Documents;
 use Illuminate\Http\Request;
+use App\Models\Project;
 
 class DocumentController extends Controller
 {
@@ -24,7 +25,10 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        return view('user.dokumentumok.create');
+    
+        return view('user.dokumentumok.create', [
+            'projects' => Project::all(),
+        ]);
     }
 
     /**
@@ -35,19 +39,27 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        $data=new Documents;
+
+
+  
+        $documents=Documents::create();
         if($request->file('file')){
             $file=$request->file('file');
-            $filename=time().'.'.$file->getClientOriginalExtension();
+            $filename=$file->getClientOriginalName();
             $request->file->move('storage/', $filename);
-            $data->file= $filename;
+            $documents->file= $filename;
 
         }
-        $data->title=$request->title;
-        $data->description=$request->description;
-        $data->save();
+        $documents->title=$request->title;
+        $documents->description=$request->description;
+        $documents->projects()->sync($request->projekt);
+        $documents->save();
 
         return redirect('user/dokumentumok.index');
+        
+
+        
+
 
     }
 

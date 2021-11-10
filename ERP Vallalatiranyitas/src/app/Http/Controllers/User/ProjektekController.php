@@ -24,9 +24,11 @@ class ProjektekController extends Controller
     public function show($id, Project $project)
     {
        $feladatok = Project::with('tasks')->find($id);
+       $dokumentumok = Project::with('documents')->find($id);
        $tasks = Task::with('user', 'projects')->find($id);
         $project = Project::with('eszkozoks')->find($id);
-        return view('user.projektek-show', compact('project', 'feladatok', 'tasks'));
+
+        return view('user.projektek-show', compact('project', 'feladatok', 'tasks', 'dokumentumok'));
     }
 
     public function vissza( Request $request)

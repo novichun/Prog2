@@ -17,14 +17,14 @@
 
 
 <div class="row justify-content-md-center" style="text-align: center;">
-    <div class="col col-lg-3 card" style="margin: 20px">
+    <div class="col col-lg-5 card" style="margin: 20px">
       <h2>Adatok:</h2>
       <strong>Projekt neve:</strong>
       {{ $project->name }}
       <strong>Felelős:</strong>
       {{ $project->felelos }} 
     </div>
-    <div class="col-md-auto col-lg-3 card" style="margin: 20px">
+    <div class="col-md-auto col-lg-5 card" style="margin: 20px">
         <h2>Eszközök:</h2>
 
 <table style="text-align: center;">
@@ -65,12 +65,44 @@
 
 
 
-    <div class="col col-lg-3 card" style="margin: 20px">
-     <h2>Gépek:</h2>
-    </div>
+    
+
+
   
 
-  <div class="col-md-auto col-lg-9 card" style="margin: 20px">
+<div class="col col-lg-5 card" style="margin: 20px">
+    <h2>Dokumentumok:</h2>
+    <table>
+        <tr>
+           <td style="font-weight: 600;s">Dokumentum</td>
+           <td style="font-weight: 600;">Leírás</td>
+           <td style="font-weight: 600;">Megtekintés</td>
+        </tr>
+    @foreach ($project->documents as $document)
+    <tr>
+        <td>{{$document->title}}</td>
+        <td>{{$document->description}}</td>
+        <td><a class="btn btn-sm btn-primary float-right" href="../dokumentumok.show/{{$document->id}}" role="button">Részletek</a></td>
+    </tr>
+    @endforeach
+   </table>
+   </div>
+
+   <div class="col col-lg-5 card" style="margin: 20px">
+    <h2>Gépek:</h2>
+    <table>
+        <tr>
+           <td style="font-weight: 600;s">Márka</td>
+           <td style="font-weight: 600;">Típus</td>
+           <td style="font-weight: 600;">Leírás</td>
+        </tr>
+    
+   </table>
+   </div>
+
+
+
+   <div class="col-md-auto col-lg-10 card" style="margin: 20px">
     <h2>Feladatok:</h2>
 
 <table style="text-align: center;">
@@ -93,6 +125,7 @@
     @endforeach
 </table>
 </div>
+
 </div>
 
 @endsection
