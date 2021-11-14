@@ -10,6 +10,7 @@ use \User\ProjektekController;
 use App\Http\Controllers\SzabadsagolasController;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 use \User\Profile;
+use App\Models\Szabadsagoks;
 
 
 /*
@@ -24,6 +25,7 @@ use \User\Profile;
 */
 
 Route::get('/', function () {
+
     return view('index');
 });
 

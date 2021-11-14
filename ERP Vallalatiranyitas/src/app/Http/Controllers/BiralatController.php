@@ -29,7 +29,7 @@ class BiralatController extends Controller
     {   
         
         Szabadsagoks::where('id', $id)->update(['biralat' => 2]);;
-        return redirect('admin/biralat.index')->with('success','Szabadságkérelem sikeresen elfogadva!');
+        return redirect('admin/biralat.index')->with('success','Szabadságkérelem sikeresen elutasítva!');
     }
     public function visszavon($id)
     {   

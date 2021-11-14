@@ -120,7 +120,7 @@ return [
     */
 
     'key' => env('APP_KEY'),
-
+    
     'cipher' => 'AES-256-CBC',
 
     /*
@@ -233,5 +233,6 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
 
     ],
+    'asd' => 'HD Site',
 
 ];

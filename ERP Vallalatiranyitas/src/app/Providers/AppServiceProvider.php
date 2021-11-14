@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Szabadsagoks;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,5 +27,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+
+        $uj=Szabadsagoks::with('users')->where('biralat', '=', 0)->count();
+        config(['uj' => $uj]);
     }
 }

@@ -105,7 +105,8 @@
           <a class="dropdown-item" href="{{ route('admin.tasks.index') }}">Feladat kiosztás</a>
           <a class="dropdown-item" href="{{ route('admin.eszkozok.index') }}">Eszközök</a>
           <a class="dropdown-item" href="{{ route('admin.esemenyek.index') }}">Események</a>
-          <a class="dropdown-item" href="{{ route('admin.biralat.index') }}">Szabadságkérelmek</a>
+
+          <a class="dropdown-item" href="{{ route('admin.biralat.index') }}">Szabadságkérelmek {{ config('uj'); }}új </a>
         </div>
     @endcan
     
