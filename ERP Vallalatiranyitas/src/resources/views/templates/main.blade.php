@@ -8,6 +8,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+      
         
         <!-- Styles -->
        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -28,15 +30,14 @@
       <script src='https://unpkg.com/@fullcalendar/core@4.3.1/main.min.js'></script>
         <script src='https://unpkg.com/@fullcalendar/daygrid@4.3.0/main.min.js'></script>
       
-      
-      
+
         
 
     
 
     </head>
     <body>
-
+      
     <nav class="navbar navbar-expand-lg ">
                 <div class="container">
         <div class="container-fluid">
@@ -104,6 +105,7 @@
           <a class="dropdown-item" href="{{ route('admin.tasks.index') }}">Feladat kiosztás</a>
           <a class="dropdown-item" href="{{ route('admin.eszkozok.index') }}">Eszközök</a>
           <a class="dropdown-item" href="{{ route('admin.esemenyek.index') }}">Események</a>
+          <a class="dropdown-item" href="{{ route('admin.biralat.index') }}">Szabadságkérelmek</a>
         </div>
     @endcan
     
@@ -122,6 +124,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.kirendeles') }}">Kirendelés</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.szabadsagolas.index') }}">Szabadságolás</a>
+                        </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('user.dokumentumok.index')}}">Dokumentumok</a>
                         </li>

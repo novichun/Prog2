@@ -22,9 +22,7 @@
     
                         <td>{{ $data->created_at }}</td>
                         <td>
-                            
                             {{ $data->title }}
-                        
                         </td>
                         <td>{{ $data->description }}</td>
                         <td><a href="dokumentumok.show/{{$data->id}}">Megtekintés</a></td>

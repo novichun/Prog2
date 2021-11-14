@@ -58,6 +58,10 @@ class User extends Authenticatable
 {
   return $this->belongsToMany(Task::class, 'user_task');
 }
+public function szabadsagok()
+    {
+    return $this->belongsToMany(Szabadsagok::class, 'user_szabadsagok');
+    }
 public function felhasznalok()
 {
   return $this->belongsToMany(Felhasznalok::class);

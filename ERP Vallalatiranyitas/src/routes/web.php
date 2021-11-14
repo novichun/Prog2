@@ -7,10 +7,10 @@ use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\Felhasznalokontroller;
 use \User\NaptarController;
 use \User\ProjektekController;
+use App\Http\Controllers\SzabadsagolasController;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 use \User\Profile;
 
-use App\Http\Controllers\User\SzabadsagolasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +48,9 @@ Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(fu
     Route::post('dokumentumok.store', 'DocumentController@store')->name('dokumentumok.store');
     Route::get('dokumentumok.show/{id}', 'DocumentController@show')->name('dokumentumok.show/{id}');
     Route::get('dokumentumok.download/{file}', 'DocumentController@download')->name('dokumentumok.download/{file}');
+    Route::get('szabadsagolas.index', 'SzabadsagolasController@index')->name('szabadsagolas.index');
+    Route::get('szabadsagolas.create', 'SzabadsagolasController@create')->name('szabadsagolas.create');
+    Route::post('szabadsagolas.store', 'SzabadsagolasController@store')->name('szabadsagolas.store');
 });
 
 // Admin elérési utak
@@ -57,6 +60,11 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function(){
     Route::resource('eszkozok', EszkozokController::class);
     Route::resource('tasks', TasksController::class);
     Route::resource('esemenyek', EsemenyekController::class);
+    Route::get('biralat.index', 'BiralatController@index')->name('biralat.index');
+    Route::get('biralat.naplo', 'BiralatController@naplo')->name('biralat.naplo');
+    Route::get('biralat.elfogad/{id}', 'BiralatController@elfogad')->name('biralat.elfogad/{id}');
+    Route::get('biralat.elutasit/{id}', 'BiralatController@elutasit')->name('biralat.elutasit/{id}');
+    Route::get('biralat.visszavon/{id}', 'BiralatController@visszavon')->name('biralat.visszavon/{id}');
 });
 
 
