@@ -26,10 +26,10 @@ class KirendelesController extends Controller
     {
 
         
-     
+
         
-        $eszkozok->projects()->sync([$request->input('projekt') => array(
-            'eszkozok_id' => 18,
+        $eszkozok->projects()->sync([$request->input('projekt', 'eszkozok') => array(
+            'eszkozok_id' => $eszkozok->id,
             'project_id' => $request->projekt,
         )]);
 
