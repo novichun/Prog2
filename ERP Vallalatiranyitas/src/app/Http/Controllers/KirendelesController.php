@@ -13,29 +13,31 @@ class KirendelesController extends Controller
 
        
 
-        $projects =Project::all();
+        $projects =Project::where('id', '!=', 1)->get();
         $szabad = Project::with('eszkozoks')->find(1);
-
+        
         return view('user.kirendeles.index', compact('szabad', 'projects'));
 
     
 
         
     }
-    public function kirendeles(Request $request, Eszkozok $eszkozok)
+    public function kirendeles(Request $request, Eszkozok $eszkozok, $id)
     {
+   
+     
+
+        $name = $request->input('projekt');
+
+
+        Eszkozok::find($id)->projects()->sync([$name]);
+
+      
+
+        return back()->with('success','Sikeresen kirendelte az eszközt!');
 
         
-
         
-        $eszkozok->projects()->sync([$request->input('projekt', 'eszkozok') => array(
-            'eszkozok_id' => $eszkozok->id,
-            'project_id' => $request->projekt,
-        )]);
-
-        return back();
-
-    
 
         
     }

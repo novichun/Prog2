@@ -14,7 +14,11 @@
     </div>
 </div>
 <br>
-
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+    <p>{{ $message }}</p>
+</div>
+@endif
 
 <div class="row justify-content-md-center" style="text-align: center;">
     <div class="col col-lg-5 card" style="margin: 20px">

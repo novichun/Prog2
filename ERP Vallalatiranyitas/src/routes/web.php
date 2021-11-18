@@ -44,7 +44,7 @@ Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(fu
     Route::post('profile_avatar', 'User\Profile@update_avatar');
     Route::get('/projektek-show/eszkoz/{id}', 'EszkozokController@vissza');
     Route::get('kirendeles', 'KirendelesController')->name('kirendeles');
-    Route::get('kirendeles-vegrehajtas', 'KirendelesController@kirendeles')->name('kirendeles-vegrehajtas');
+    Route::get('/kirendeles/eszkoz/{id}', 'KirendelesController@kirendeles')->name('/kirendeles/eszkoz/{id}');
     Route::get('dokumentumok.index', 'DocumentController@index')->name('dokumentumok.index');
     Route::get('dokumentumok.create', 'DocumentController@create')->name('dokumentumok.create');
     Route::post('dokumentumok.store', 'DocumentController@store')->name('dokumentumok.store');

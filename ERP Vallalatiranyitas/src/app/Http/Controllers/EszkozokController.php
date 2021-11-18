@@ -111,8 +111,9 @@ class eszkozokController extends Controller
 
     public function vissza($id, Request $request)
     {
+        
         Eszkozok::find($id)->projects()->sync([1]);
-        return back();
+        return back()->with('success','Sikeresen létrehozta az eseményt.');
     }
     
 
