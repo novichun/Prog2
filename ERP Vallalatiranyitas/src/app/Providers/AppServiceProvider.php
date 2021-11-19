@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\Massages;
 use Illuminate\Support\ServiceProvider;
 use ConsoleTVs\Charts\Registrar as Charts;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Szabadsagoks;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,6 +35,6 @@ class AppServiceProvider extends ServiceProvider
             \App\Charts\OsszesChart::class
         ]);
         $uj=Szabadsagoks::with('users')->where('biralat', '=', 0)->count();
-        config(['uj' => $uj]);
+        config(['uj' => $uj,]);
     }
 }

@@ -12,7 +12,7 @@
 </div>
 @endif
 
-        
+
         <div class="col-md-auto col-lg-10 card" style="margin: auto">
         <table style="text-align: center;">
                 <tr>

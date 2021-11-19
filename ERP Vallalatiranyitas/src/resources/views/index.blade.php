@@ -33,6 +33,26 @@
     </div>
     
 </div>
+<div class="card">
+  <h2 style="text-align: center">Üzenetek</h2>
+  <table class="table">
+    <tr>
+        <th>Feladó</th>
+        <th>Tárgy</th>
+        <th>Üzenet</th>
+    </tr>
+    @foreach ($uzenetek as $uzenet)
+    <tr>
+
+        <td>{{ $uzenet->kuldo }}</td>
+        <td>{{ $uzenet->targy }}</td>
+        <td>{{ $uzenet->uzenet }}</td>
+        
+    </tr>
+    @endforeach
+</table>
+
+</div>
     
     
         @else

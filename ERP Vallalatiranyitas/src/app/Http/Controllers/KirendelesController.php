@@ -10,8 +10,7 @@ class KirendelesController extends Controller
     public function __invoke(Request $request,Eszkozok $eszkozok)
     {
 
-
-       
+      
 
         $projects =Project::where('id', '!=', 1)->get();
         $szabad = Project::with('eszkozoks')->find(1);

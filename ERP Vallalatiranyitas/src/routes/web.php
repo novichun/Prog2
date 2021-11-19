@@ -5,12 +5,13 @@ use Illuminate\Support\Facades\Route;
 use Admin\UserController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\Felhasznalokontroller;
+use App\Http\Controllers\MassagesController;
 use \User\NaptarController;
 use \User\ProjektekController;
 use App\Http\Controllers\SzabadsagolasController;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 use \User\Profile;
-use App\Models\Szabadsagoks;
+use App\Models\Massages;
 
 
 /*
@@ -25,8 +26,8 @@ use App\Models\Szabadsagoks;
 */
 
 Route::get('/', function () {
-
-    return view('index');
+    $uzenetek = Massages::where('fogado', '=', auth()->user()->name ?? 'none')->get();
+    return view('index', compact('uzenetek'));
 });
 
 
@@ -53,6 +54,9 @@ Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(fu
     Route::get('szabadsagolas.index', 'SzabadsagolasController@index')->name('szabadsagolas.index');
     Route::get('szabadsagolas.create', 'SzabadsagolasController@create')->name('szabadsagolas.create');
     Route::post('szabadsagolas.store', 'SzabadsagolasController@store')->name('szabadsagolas.store');
+    Route::get('massages.index', 'MassagesController@index')->name('massages.index');
+    Route::get('massages.create', 'MassagesController@create')->name('massages.create');
+    Route::post('massages.store', 'MassagesController@store')->name('massages.store');
 });
 
 // Admin elérési utak

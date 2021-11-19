@@ -113,7 +113,7 @@ class eszkozokController extends Controller
     {
         
         Eszkozok::find($id)->projects()->sync([1]);
-        return back()->with('success','Sikeresen létrehozta az eseményt.');
+        return back()->with('success','Sikeresen visszakerült a termék a raktárba!');
     }
     
 

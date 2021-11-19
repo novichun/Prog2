@@ -59,6 +59,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                   <li><a class="dropdown-item" href="{{ route('user.profile') }}">Profil</a></li>
+                                  <li><a class="dropdown-item" href="{{ route('user.massages.index') }}">Üzenetek</a></li>
                                   <div class="dropdown-divider"></div>
                                   <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Kijelentkezés</a></li>
                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -108,6 +109,7 @@
 
           <a class="dropdown-item" href="{{ route('admin.biralat.index') }}">Szabadságkérelmek {{ config('uj'); }}új </a>
         </div>
+    </li>
     @endcan
     
 
@@ -121,10 +123,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.projektek') }}">Projektek</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user.kirendeles') }}">Kirendelés</a>
-                    </li>
+                <li class="nav-item dropdown">
+                    
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Kirendelések
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('user.kirendeles') }}">Eszközök kirendelés</a>
+                    </div>
+                </li>
+               
+                    
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user.szabadsagolas.index') }}">Szabadságolás</a>
                         </li>

@@ -42,12 +42,16 @@
             <td>{{$eszkoz->eszkoz}}</td>
             <td>{{$eszkoz->marka}}</td>
             <td>{{$eszkoz->id}}</td>
+            @if($project->id == 1)
+            
+            @else
             <td>
                 <form action="{{ action('EszkozokController@vissza',$eszkoz->id) }}" method="GET">
                     @csrf
                     <button type="submit" class="btn btn-primary">RAKTÁR</button>
                 </form>
             </td>
+            @endif
         </tr>
         @endforeach
 </table>
