@@ -1,0 +1,18 @@
+védésen:
+kellene try catch
+fajl meret kiiratása a feltöltésnél
+egyszerre kattintunk a visszarakásnál akkor mi történik lekezelni
+HIBAKEZELÉS
+
+Kezdőlapra:
+Charts:
+		- Alkalmazottak szabad
+		- Gépek szabad
+		- maybe foglalt tarhely
+		-eszközök szabad
+-alkalmazottak száma
+-gépek száma
+-eszközök száma
+-projektek száma
+-feladatok száma
+-új szabadság kérelem (ADMIN)
