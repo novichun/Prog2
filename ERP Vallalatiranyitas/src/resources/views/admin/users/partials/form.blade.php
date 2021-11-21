@@ -59,7 +59,7 @@
   
   <div class="form-check">
     <input class="form-check-input" name="jogoks[]"
-            type="checkbox" value="{{ $role->id }}" id="{{ $role->name }}"
+            type="checkbox" style="visibility: visible; opacity: 1;" value="{{ $role->id }}" id="{{ $role->name }}"
 @isset($user) @if(in_array($role->id, $user->jogoks->pluck('id')->toArray())) checked @endif @endisset>
             <label class="form-check-label" for="{{ $role->name }}">
             {{ $role->name }}

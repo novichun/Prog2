@@ -6,6 +6,7 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\Jogok;
+use App\Models\Munkaidok;
 use App\Models\Role;
 use App\Models\User;
 use GuzzleHttp\Promise\Create;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use phpDocumentor\Reflection\Types\Null_;
+use App\Models\Task;
 
 class UserController extends Controller
 {
@@ -88,7 +90,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $felhasznalo = User::find($id);
+        $munkaidok = Munkaidok::where('user', '=', $felhasznalo->name)->get();
+
+
+        return view('admin.users.show', ['tasks' => Task::find($id), 'jogoks' => Jogok::all(), 'user' => User::find($id)],
+    compact('munkaidok'));
     }
 
     /**

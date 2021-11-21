@@ -29,7 +29,7 @@
                     <th>Projekt</th>
                     <th>Feladat</th>
                     <th>Határidő</th>
-                    <th width="280px">Műveletek</th>
+                    <th style="text-align: right;">Műveletek</th>
                 </tr>
                 @foreach ($tasks as $task)
                 <tr>
@@ -42,7 +42,7 @@
                     </td>
                     <td>{{ $task->feladat }}</td>
                     <td>{{ $task->hatarido }}</td>
-                    <td>
+                    <td style="text-align: right;">
                         <form action="{{ route('admin.tasks.destroy',$task->id) }}" method="POST">
            
                             <a class="btn btn-info" href="{{ route('admin.tasks.show',$task->id) }}">Nézet</a>

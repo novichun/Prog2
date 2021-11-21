@@ -57,6 +57,11 @@ Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(fu
     Route::get('massages.index', 'MassagesController@index')->name('massages.index');
     Route::get('massages.create', 'MassagesController@create')->name('massages.create');
     Route::post('massages.store', 'MassagesController@store')->name('massages.store');
+    Route::get('munkaido.index', 'MunkaidokController@index')->name('munkaido.index');
+    Route::get('munkaido.create', 'MunkaidokController@create')->name('munkaido.create');
+    Route::post('munkaido.store', 'MunkaidokController@store')->name('munkaido.store');
+    Route::get('munkaido.edit/{id}', 'MunkaidokController@edit')->name('munkaido.edit/{id}');
+    Route::POST('/munkaido.update/{id}', 'MunkaidokController@update')->name('munkaido.update');
 });
 
 // Admin elérési utak

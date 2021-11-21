@@ -1,8 +1,8 @@
 @extends('templates.main')
 
 @section('content')
-
-<h1>{{ auth()->user()->name }} Profilja</h1>
+<div class="card">
+<h1 style="text-align: center">{{ auth()->user()->name }} Profilja</h1>
 
 <div class="container">
   <div class="row">
@@ -59,5 +59,5 @@
  
   <button type="submit" class="btn btn-primary">Frissítés</button>
 </form>
-
+</div>
 @endsection

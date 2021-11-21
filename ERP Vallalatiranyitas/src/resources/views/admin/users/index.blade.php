@@ -44,7 +44,7 @@
       <td>{{ $user->phone }}</td>
       
       <td>
-
+      <a class="btn btn-sm btn-primary" href=" {{ route('admin.users.show', $user->id) }}" role="button">Részletek</a>
       <a class="btn btn-sm btn-primary" href=" {{ route('admin.users.edit', $user->id) }}" role="button">Szerkesztés</a>
       <button type="button" class="btn btn-sm btn-danger" onclick="event.preventDefault(); document.getElementById('delete-user-form-{{ $user->id }}').submit()">
             Törlés

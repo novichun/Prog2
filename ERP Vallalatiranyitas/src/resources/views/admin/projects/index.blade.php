@@ -26,13 +26,13 @@
                 <tr>
                     <th>Projekt</th>
                     <th>Felelős</th>
-                    <th width="280px">Műveletek</th>
+                    <th style="text-align: right;">Műveletek</th>
                 </tr>
                 @foreach ($projects as $project)
                 <tr>
                     <td>{{ $project->name }}</td>
                     <td>{{ $project->felelos }}</td>
-                    <td>
+                    <td style="text-align: right;">
                         <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
            
                             <a class="btn btn-info" href="{{ route('admin.projects.show',$project->id) }}">Nézet</a>

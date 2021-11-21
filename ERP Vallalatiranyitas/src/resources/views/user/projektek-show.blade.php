@@ -24,14 +24,14 @@
     <div class="col col-lg-5 card" style="margin: 20px">
       <h2>Adatok:</h2>
       <strong>Projekt neve:</strong>
-      {{ $project->name }}
+      {{ $project->name }}<br>
       <strong>Felelős:</strong>
       {{ $project->felelos }} 
     </div>
     <div class="col-md-auto col-lg-5 card" style="margin: 20px">
         <h2>Eszközök:</h2>
 
-<table style="text-align: center;">
+<table style="text-align: center; width:100%;">
         <tr>
             <th>Eszköz</th>
             <th>Márka</th>
@@ -80,7 +80,7 @@
 
 <div class="col col-lg-5 card" style="margin: 20px">
     <h2>Dokumentumok:</h2>
-    <table>
+    <table style="width:100%;">
         <tr>
            <td style="font-weight: 600;s">Dokumentum</td>
            <td style="font-weight: 600;">Leírás</td>
@@ -98,7 +98,7 @@
 
    <div class="col col-lg-5 card" style="margin: 20px">
     <h2>Gépek:</h2>
-    <table>
+    <table style="width:100%;">
         <tr>
            <td style="font-weight: 600;s">Márka</td>
            <td style="font-weight: 600;">Típus</td>
@@ -113,7 +113,7 @@
    <div class="col-md-auto col-lg-10 card" style="margin: 20px">
     <h2>Feladatok:</h2>
 
-<table style="text-align: center;">
+<table style="text-align: center; width:100%;">
     <tr>
         <th>Alkalmazott</th>
         <th>Feladat</th>
