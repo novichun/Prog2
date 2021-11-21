@@ -19,7 +19,7 @@ class CreateSzabadsagoksTable extends Migration
             $table->string('leiras');
             $table->date('kezdet');
             $table->date('veg');
-            $table->boolean('biralat')->default(0);
+            $table->boolean('biralat');
             $table->timestamps();
         });
     }
